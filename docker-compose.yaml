@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  db:
+    build: ./src/db
+    environment:
+      - MYSQL_USER=daniel
+      - MYSQL_PASSWORD=daniel
+      - MYSQL_DATABASE=testEx
+      - MYSQL_ROOT_PASSWORD=daniel
+      - MYSQL_ALLOW_EMPTY_PASSWORD=daniel
+      - MYSQL_RANDOM_ROOT_PASSWORDb=daniel
+    ports:
+      - "3008:3006"
+      
+  web:
+    build: .
+    environment:
+      MYSQL_DATABASE: testEx
+      MYSQL_USER: daniel
+      MYSQL_PASSWORD: daniel
+      MYSQL_HOST: db
+    ports:
+      - "5000:3500"
+    depends_on:
+      - db
+    restart: on-failure
