@@ -1,0 +1,5 @@
+please exevute the next command:
+
+docker compose up
+
+you should install docker
